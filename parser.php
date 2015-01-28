@@ -3,7 +3,7 @@
 class Parser {
 
 	private $html,
-			$data;
+		$data;
 
 	public function __construct($html) {
 		$this->html = $html;
