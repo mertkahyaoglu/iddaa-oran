@@ -30,7 +30,7 @@ class Parser
     public function getData()
     {
         $dom = new DOMDocument;
-        $dom->loadHTML($this->html);
+        @$dom->loadHTML($this->html);
         $tables = $dom->getElementsByTagName('table');
         foreach ($tables as $table) {
 
