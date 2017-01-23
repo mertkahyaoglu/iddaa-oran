@@ -1,7 +1,6 @@
 <?php header('Content-Type: text/html; charset=utf-8');
 include "bulten.php";
 $bulten = Bulten::getBulten('20-23.01.2017');
-$tekmac = $bulten['387'];
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +19,6 @@ $tekmac = $bulten['387'];
 		echo "Konuk:".$mac->konuk."<br><br>";
 		echo "Tarih:".$mac->tarih."<br><br>";
 	}
-	echo "Maç ".$tekmac->kod.": ".$tekmac->ev." - ".$tekmac->konuk;
 ?>
 </body>
 </html>
