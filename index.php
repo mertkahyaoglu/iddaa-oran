@@ -1,6 +1,6 @@
 <?php header('Content-Type: text/html; charset=utf-8');
 include "bulten.php";
-$bulten = Bulten::getBulten('23-26.01.2015');
+$bulten = Bulten::getBulten('20-23.01.2017');
 $tekmac = $bulten['387'];
 ?>
 
@@ -13,9 +13,12 @@ $tekmac = $bulten['387'];
 <body>
 <?php
 	foreach ($bulten as $mac) {
+//		var_dump($mac->tarih);
+//		die;
 		echo "Maç Kodu:".$mac->kod."<br>";
 		echo "Ev Sahibi:".$mac->ev."<br>";
 		echo "Konuk:".$mac->konuk."<br><br>";
+		echo "Tarih:".$mac->tarih."<br><br>";
 	}
 	echo "Maç ".$tekmac->kod.": ".$tekmac->ev." - ".$tekmac->konuk;
 ?>
