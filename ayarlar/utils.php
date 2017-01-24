@@ -66,3 +66,14 @@ function stringToNumberic($days){
 return $daysLast;
 }
 
+function commaToDot($number){
+  $dot=str_replace(',', '.', $number);
+  return $dot;
+}
+
+function cleanTrie($number){
+  $dot=str_replace('-', '', $number);
+  return $dot;
+}
+
+
