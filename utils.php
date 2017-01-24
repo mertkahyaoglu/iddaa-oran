@@ -42,3 +42,27 @@ function getMonthIndex($month) {
       break;
   }
 }
+
+
+function stringToNumberic($days){
+
+    $daysNames = ['Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi','Pazar','rtesi'];
+
+    $clearDay=str_replace($daysNames, '', $days);
+
+    $num = array(
+    "01", "02", "03", "04", "05", "06",
+    "07", "08", "09", "10", "11", "12"
+    );
+    $mstring = array(
+    "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+    "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
+    );
+
+  $numbericDays = str_replace($mstring, $num, $clearDay);
+  $days = str_replace('  ', '-' , trim($numbericDays));
+  $daysLast = str_replace(' ', '-' , trim($days));
+
+return $daysLast;
+}
+
