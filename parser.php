@@ -3,12 +3,10 @@
 class Parser
 {
 
-    private $html,
-        $data;
+    private $data;
 
-    public function __construct($html)
+    public function __construct()
     {
-        $this->html = $html;
         $this->data = array();
     }
 
@@ -27,10 +25,10 @@ class Parser
         return $nodes;
     }
 
-    public function getData()
+    public function getData($html)
     {
         $dom = new DOMDocument;
-        @$dom->loadHTML($this->html);
+        @$dom->loadHTML($html);
         $tables = $dom->getElementsByTagName('table');
         foreach ($tables as $table) {
 
@@ -71,6 +69,17 @@ class Parser
             }
         }
         return $this->data;
+    }
+
+    public function getLatestFixtureDate($html) {
+      $dom = new DOMDocument;
+      @$dom->loadHTML($html);
+      $xpath = new DOMXPath($dom);
+      $link = $xpath->query("//*[@id='main-container']/div[1]/div[2]/div[1]/div/div[3]/div/div/div[1]/div[2]/a");
+      $href = $link->item(0)->getAttribute('href');
+      $date = explode('/',$href)[2];
+      $arr = explode('-', $date);
+      return $arr[0].'-'.$arr[1].'.'.getMonthIndex($arr[2]).'.'.$arr[3];
     }
 
 }
