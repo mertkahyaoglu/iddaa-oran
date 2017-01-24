@@ -1,6 +1,8 @@
 <?php header('Content-Type: text/html; charset=utf-8');
 include "bulten.php";
-$bulten = Bulten::getBulten('20-23.01.2017');
+$fixture = new Bulten();
+//$matches = $fixture->getFixture('20-23.01.2017');
+$currentMatches = $fixture->getCurrentFixture();
 ?>
 
 <!DOCTYPE html>
@@ -27,12 +29,12 @@ $bulten = Bulten::getBulten('20-23.01.2017');
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($bulten as $mac): ?>
+				<?php foreach ($currentMatches as $match): ?>
 					<tr>
-						<td><?=$mac->tarih?></td>
-						<td><?=$mac->kod?></td>
-						<td><?=$mac->ev?></td>
-						<td><?=$mac->konuk?></td>
+						<td><?=$match->tarih?></td>
+						<td><?=$match->kod?></td>
+						<td><?=$match->ev?></td>
+						<td><?=$match->konuk?></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
