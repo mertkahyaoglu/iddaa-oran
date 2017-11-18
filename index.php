@@ -1,5 +1,5 @@
 <?php header('Content-Type: text/html; charset=utf-8');
-include "bulten.php";
+include "ayarlar/bulten.php";
 $fixture = new Bulten();
 //$matches = $fixture->getFixture('20-23.01.2017');
 $currentMatches = $fixture->getCurrentFixture();
